@@ -1,0 +1,48 @@
+@ProductCatalogApi_HostAddress = https://localhost:7258
+
+### GET ALL
+GET {{ProductCatalogApi_HostAddress}}/api/products
+Accept: application/json
+
+###
+### CREATE PRODUCT
+POST {{ProductCatalogApi_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "iPhone 17 Pro",
+  "description": "Apple smartphone 256GB",
+  "price": 4999
+}
+### GET BY ID
+GET {{ProductCatalogApi_HostAddress}}/api/products/1
+Accept: application/json
+
+###
+
+### UPDATE PRODUCT
+PUT {{ProductCatalogApi_HostAddress}}/api/products/1
+Content-Type: application/json
+
+{
+  "name": "Laptop Pro",
+  "description": "Updated Dell business laptop",
+  "price": 4200
+}
+
+###
+
+### VALIDATION TEST - MUST RETURN 400
+POST {{ProductCatalogApi_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "",
+  "description": "Invalid product",
+  "price": -100
+}
+
+###
+
+### DELETE PRODUCT
+DELETE {{ProductCatalogApi_HostAddress}}/api/products/1
